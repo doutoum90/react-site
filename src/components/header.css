@@ -1,0 +1,33 @@
+ul {
+  list-style: none;
+  padding: 1em 0;
+  border-bottom: 2px solid #61f231;
+  border-top: 2px solid #61f231;
+  width: 50%;
+  float: left;
+  clear: initial;
+}
+
+li {
+  display: inline;
+  padding: 0 1.5em;
+  border-left: 2px solid #61f231;
+}
+
+li.special_text {
+  font-size: 200%;
+  font-weight: bold;
+  color: black;
+  font-family: "Arial Black";
+}
+
+li.special_text a {
+  text-decoration: none;
+}
+
+.floatleft {
+  float: left;
+}
+.floatright {
+  float: right;
+}
