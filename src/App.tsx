@@ -16,6 +16,7 @@ import Article from "./components/Article";
 import Connexion from "./components/Connexion";
 import Inscription from "./components/Inscription";
 import { IMenus } from "./interfaces/menus.interface";
+import ProtectedRoutes from "./ProtectedRoutes";
 
 function App(): JSX.Element {
   const menus: IMenus = {
@@ -40,9 +41,11 @@ function App(): JSX.Element {
           <Route path="/" element={<Home key="Home" />} />
           <Route path="/About" element={<About key="About" />} />
           <Route path="/contact" element={<Contact key="Contact" />} />
-          <Route path="/articles">
-            <Route index element={<Articles key="Articles" />} />
-            <Route path=":number" element={<Article key="ArticleDetail" />} />
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/articles">
+              <Route index element={<Articles key="Articles" />} />
+              <Route path=":number" element={<Article key="ArticleDetail" />} />
+            </Route>
           </Route>
 
           <Route path="/connexion" element={<Connexion key="Connexion" />} />
