@@ -1,9 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { Menus } from "../interfaces/menus.interface";
+import { IMenus } from "../interfaces/menus.interface";
 import "./Header.css";
 
-export default function Header({ menus }: { menus: Menus }) {
+export default function Header({ menus }: { menus: IMenus }): JSX.Element {
   return (
     <>
       <nav key="key11">

@@ -15,11 +15,10 @@ import Articles from "./components/Articles";
 import Article from "./components/Article";
 import Connexion from "./components/Connexion";
 import Inscription from "./components/Inscription";
-import { Menus } from "./interfaces/menus.interface";
-
+import { IMenus } from "./interfaces/menus.interface";
 
 function App() {
-  const menus: Menus = {
+  const menus: IMenus = {
     menuLeft: [
       { name: "Home", path: "/" },
       { name: "About", path: "/about" },

@@ -1,3 +1,3 @@
-export default function Connexion() {
+export default function Connexion(): JSX.Element {
   return <>Connexion en cours ...</>;
 }

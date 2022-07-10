@@ -2,19 +2,17 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-
 import articles from "../assets/articles.json";
-import { ArticleInterf } from "../interfaces/article.interface";
+import { IArticle } from "../interfaces/article.interface";
 
-
-export default function Article() {
+export default function Article(): JSX.Element {
   const [message, setMessage] = useState("");
   const { number } = useParams();
-  const [article, setArticle] = useState<ArticleInterf>();
+  const [article, setArticle] = useState<IArticle>();
 
   useEffect(() => {
     if (number) {
-      const article: ArticleInterf | undefined = articles.find(
+      const article: IArticle | undefined = articles.find(
         (article) => article.id === Number(number)
       );
       setArticle(article);

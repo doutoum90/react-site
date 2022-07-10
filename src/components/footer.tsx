@@ -1,7 +1,7 @@
 import React from "react";
 import "./Footer.css";
 
-export default function Footer() {
+export default function Footer(): JSX.Element {
   return (
     <footer className="footer">
       <p>Fierement propulsée par Mahamat Annour Doutoum ©2010-2022.</p>

@@ -1,7 +1,7 @@
 import articles from "../assets/articles.json";
 import React from "react";
 
-export default function Articles() {
+export default function Articles(): JSX.Element {
   return (
     <div>
       {articles.map((article, key) => {

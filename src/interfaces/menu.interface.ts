@@ -1,4 +1,4 @@
-export interface MenuInter {
+export interface IMenu {
   name: string;
   path: string;
 }

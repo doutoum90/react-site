@@ -1,6 +1,6 @@
-import { MenuInter } from "./menu.interface";
+import { IMenu } from "./menu.interface";
 
-export interface Menus {
-  menuLeft: MenuInter[];
-  menuRight: MenuInter[];
+export interface IMenus {
+  menuLeft: IMenu[];
+  menuRight: IMenu[];
 }
