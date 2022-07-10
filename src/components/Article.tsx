@@ -14,7 +14,6 @@ export default function Article() {
 
   useEffect(() => {
     if (number) {
-      setMessage("L'id de l'article est " + number);
       const article: ArticleInterf | undefined = articles.find(
         (article) => article.id === Number(number)
       );

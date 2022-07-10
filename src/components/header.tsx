@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { Menus } from "../interfaces/menus.interface";
-import "./header.css";
+import "./Header.css";
 
 export default function Header({ menus }: { menus: Menus }) {
   return (

@@ -1,14 +1,13 @@
 import React from "react";
-import "./App.css";
-import Footer from "./components/footer";
-import Header from "./components/header";
-import { Menus } from "./interfaces/menus.interface";
 import {
   BrowserRouter as Router,
   NavLink,
   Route,
   Routes,
 } from "react-router-dom";
+import "./App.css";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 import Home from "./components/Home";
 import About from "./components/About";
 import Contact from "./components/Contact";
@@ -16,6 +15,8 @@ import Articles from "./components/Articles";
 import Article from "./components/Article";
 import Connexion from "./components/Connexion";
 import Inscription from "./components/Inscription";
+import { Menus } from "./interfaces/menus.interface";
+
 
 function App() {
   const menus: Menus = {

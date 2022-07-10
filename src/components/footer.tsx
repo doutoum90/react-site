@@ -1,10 +1,13 @@
 import React from "react";
+import "./Footer.css";
 
 export default function Footer() {
   return (
-    <div>
-      <h2>Footer</h2>
-      <p>Un long texte pour notre footer</p>
-    </div>
+    <footer className="footer">
+      <p>Fierement propulsée par Mahamat Annour Doutoum ©2010-2022.</p>
+      <p>Code licensed under an MIT-style License.</p>
+      <p>Documentation licensed under CC BY 4.0.</p>
+      <p>Version 0.0.1.</p>
+    </footer>
   );
 }
