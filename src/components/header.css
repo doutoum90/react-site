@@ -30,4 +30,5 @@ li.special_text a {
 }
 .floatright {
   float: right;
+  text-align: end;
 }

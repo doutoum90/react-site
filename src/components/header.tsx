@@ -1,30 +1,31 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import { Menus } from "../interfaces/menus.interface";
 import "./header.css";
 
 export default function Header({ menus }: { menus: Menus }) {
   return (
     <>
-      <nav>
-        <ul className="floatleft">
+      <nav key="key11">
+        <ul className="floatleft" key="floatleft">
           {menus.menuLeft.map((menu, key) => {
             return (
-              <li>
-                <a key={key} href={menu.path}>
+              <li key={key}>
+                <NavLink key={key} to={menu.path}>
                   {menu.name}
-                </a>
+                </NavLink>
               </li>
             );
           })}
         </ul>
 
-        <ul className="floatright">
+        <ul className="floatright" key="floatright">
           {menus.menuRight.map((menu, key) => {
             return (
-              <li>
-                <a key={key} href={menu.path}>
+              <li key={key}>
+                <NavLink key={key} to={menu.path}>
                   {menu.name}
-                </a>
+                </NavLink>
               </li>
             );
           })}

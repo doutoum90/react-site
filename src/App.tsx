@@ -1,17 +1,29 @@
 import React from "react";
-import logo from "./assets/logo.svg";
 import "./App.css";
 import Footer from "./components/footer";
 import Header from "./components/header";
 import { Menus } from "./interfaces/menus.interface";
-import Main from "./components/main";
+import {
+  BrowserRouter as Router,
+  NavLink,
+  Route,
+  Routes,
+} from "react-router-dom";
+import Home from "./components/Home";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import Articles from "./components/Articles";
+import Article from "./components/Article";
+import Connexion from "./components/Connexion";
+import Inscription from "./components/Inscription";
 
 function App() {
   const menus: Menus = {
     menuLeft: [
       { name: "Home", path: "/" },
       { name: "About", path: "/about" },
-      { name: "Home", path: "/" },
+      { name: "Contact", path: "/contact" },
+      { name: "Articles", path: "/articles" },
     ],
     menuRight: [
       { name: "Connexion", path: "/connexion" },
@@ -19,13 +31,29 @@ function App() {
     ],
   };
   return (
-    <div className="App">
-      <Header menus={menus} />
+    <Router>
+      <Header key="headerZEZE" menus={menus} />
 
-      <Main />
-      <hr />
-      <Footer />
-    </div>
+      <NavLink to="/"></NavLink>
+      <div className="content">
+        <Routes>
+          <Route path="/" element={<Home key="Home" />} />
+          <Route path="/About" element={<About key="About" />} />
+          <Route path="/contact" element={<Contact key="Contact" />} />
+          <Route path="/articles">
+            <Route index element={<Articles key="Articles" />} />
+            <Route path=":number" element={<Article key="ArticleDetail" />} />
+          </Route>
+
+          <Route path="/connexion" element={<Connexion key="Connexion" />} />
+          <Route
+            path="/inscription"
+            element={<Inscription key="Inscription" />}
+          />
+        </Routes>
+      </div>
+      <Footer key="footer" />
+    </Router>
   );
 }
 
