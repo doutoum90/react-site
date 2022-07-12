@@ -1,11 +1,9 @@
 import { Outlet } from "react-router-dom";
-import Connexion from "./components/Connexion";
 
-const useAuth = () => {
-  const user = { loggedIn: false };
-  return user && user.loggedIn;
-};
+import Connexion from "./components/Connexion";
+import useAuth from "./hooks/UseAuth";
 
 export default function ProtectedRoutes() {
-  return useAuth() ? <Outlet /> : <Connexion />;
+  const { auth } = useAuth();
+  return auth?.user?.name ? <Outlet /> : <Connexion />;
 }

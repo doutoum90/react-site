@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter as Router,
   NavLink,
@@ -17,8 +17,10 @@ import Connexion from "./components/Connexion";
 import Inscription from "./components/Inscription";
 import { IMenus } from "./interfaces/menus.interface";
 import ProtectedRoutes from "./ProtectedRoutes";
+import { AuthContext } from "./context/AuthContext";
 
 function App(): JSX.Element {
+  const [auth, setAuth] = useState({});
   const menus: IMenus = {
     menuLeft: [
       { name: "Home", path: "/" },
@@ -32,31 +34,36 @@ function App(): JSX.Element {
     ],
   };
   return (
-    <Router>
-      <Header key="headerZEZE" menus={menus} />
+    <AuthContext.Provider value={{ auth, setAuth }}>
+      <Router>
+        <Header key="header" menus={menus} />
 
-      <NavLink to="/"></NavLink>
-      <div className="content">
-        <Routes>
-          <Route path="/" element={<Home key="Home" />} />
-          <Route path="/About" element={<About key="About" />} />
-          <Route path="/contact" element={<Contact key="Contact" />} />
-          <Route element={<ProtectedRoutes />}>
-            <Route path="/articles">
-              <Route index element={<Articles key="Articles" />} />
-              <Route path=":number" element={<Article key="ArticleDetail" />} />
+        <NavLink to="/"></NavLink>
+        <div className="content">
+          <Routes>
+            <Route path="/" element={<Home key="Home" />} />
+            <Route path="/About" element={<About key="About" />} />
+            <Route path="/contact" element={<Contact key="Contact" />} />
+            <Route element={<ProtectedRoutes />}>
+              <Route path="/articles">
+                <Route index element={<Articles key="Articles" />} />
+                <Route
+                  path=":number"
+                  element={<Article key="ArticleDetail" />}
+                />
+              </Route>
             </Route>
-          </Route>
 
-          <Route path="/connexion" element={<Connexion key="Connexion" />} />
-          <Route
-            path="/inscription"
-            element={<Inscription key="Inscription" />}
-          />
-        </Routes>
-      </div>
-      <Footer key="footer" />
-    </Router>
+            <Route path="/connexion" element={<Connexion key="Connexion" />} />
+            <Route
+              path="/inscription"
+              element={<Inscription key="Inscription" />}
+            />
+          </Routes>
+        </div>
+        <Footer key="footer" />
+      </Router>
+    </AuthContext.Provider>
   );
 }
 

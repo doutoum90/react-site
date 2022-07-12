@@ -22,10 +22,12 @@ export default function Article(): JSX.Element {
   });
   return (
     <>
+      {number}?
       <div className="article-item" key="article-item-detail">
         <h3>{article?.title}</h3>
         <p>{article?.body}</p>
       </div>
+      :<p>{message}</p>
     </>
   );
 }
