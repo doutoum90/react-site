@@ -19,7 +19,7 @@ export default function Article(): JSX.Element {
     } else {
       setMessage("id introuvable");
     }
-  });
+  }, [number]);
   return (
     <>
       {number}?

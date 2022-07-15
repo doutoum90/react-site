@@ -4,6 +4,6 @@ import Connexion from "./components/Connexion";
 import useAuth from "./hooks/UseAuth";
 
 export default function ProtectedRoutes() {
-  const { auth } = useAuth();
-  return auth?.user?.name ? <Outlet /> : <Connexion />;
+  const [auth] = useAuth();
+  return auth?.name ? <Outlet /> : <Connexion />;
 }

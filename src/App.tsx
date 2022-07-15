@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   BrowserRouter as Router,
   NavLink,
@@ -17,10 +17,9 @@ import Connexion from "./components/Connexion";
 import Inscription from "./components/Inscription";
 import { IMenus } from "./interfaces/menus.interface";
 import ProtectedRoutes from "./ProtectedRoutes";
-import { AuthContext } from "./context/AuthContext";
+import { AuthProvider } from "./context/AuthContext";
 
 function App(): JSX.Element {
-  const [auth, setAuth] = useState({});
   const menus: IMenus = {
     menuLeft: [
       { name: "Home", path: "/" },
@@ -34,7 +33,7 @@ function App(): JSX.Element {
     ],
   };
   return (
-    <AuthContext.Provider value={{ auth, setAuth }}>
+    <AuthProvider>
       <Router>
         <Header key="header" menus={menus} />
 
@@ -63,7 +62,7 @@ function App(): JSX.Element {
         </div>
         <Footer key="footer" />
       </Router>
-    </AuthContext.Provider>
+    </AuthProvider>
   );
 }
 
