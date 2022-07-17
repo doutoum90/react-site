@@ -2,7 +2,7 @@ import { Address } from "./address.interface";
 import { Company } from "./company.interface";
 
 export interface User {
-  id: number;
+  id?: number;
   name: string;
   username: string;
   password: string;

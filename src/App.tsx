@@ -21,16 +21,21 @@ import { AuthProvider } from "./context/AuthContext";
 
 function App(): JSX.Element {
   const menus: IMenus = {
-    menuLeft: [
-      { name: "Home", path: "/" },
-      { name: "About", path: "/about" },
-      { name: "Contact", path: "/contact" },
-      { name: "Articles", path: "/articles" },
-    ],
-    menuRight: [
-      { name: "Connexion", path: "/connexion" },
-      { name: "Inscription", path: "/inscription" },
-    ],
+    menuLeft: {
+      protege: [{ name: "Articles", path: "/articles" }],
+      publiq: [
+        { name: "Home", path: "/" },
+        { name: "About", path: "/about" },
+        { name: "Contact", path: "/contact" },
+      ],
+    },
+    menuRight: {
+      protege: [{ name: "Se deconnecter", path: "/logout" }],
+      publiq: [
+        { name: "Connexion", path: "/connexion" },
+        { name: "Inscription", path: "/inscription" },
+      ],
+    },
   };
   return (
     <AuthProvider>

@@ -7,10 +7,12 @@ import React, {
 } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
-import axios from "axios";
 import { CustomError } from "../interfaces/error.interface";
 import { User } from "../interfaces/user.interface";
 import useAuth from "../hooks/UseAuth";
+
+// import users from "../assets/users.json";
+const users: User[] = require("../assets/users.json");
 
 export default function Connexion(): JSX.Element {
   const [auth, setAuth] = useAuth();
@@ -106,16 +108,17 @@ export default function Connexion(): JSX.Element {
 export async function getUser(
   username: string,
   password: string
-): Promise<User> {
-  return (await axios.get("./users.json")).data
-    .map((user: User) => {
-      return {
-        ...user,
-        accessToken: "accessTokenaccessToken",
-        roles: ["admin"],
-      };
-    })
-    .find(
-      (user: User) => user.username === username && user.password === password
-    );
+): Promise<User | undefined> {
+  const selectedUser: User | undefined = await users.find(
+    (user: User) => user.username === username && user.password === password
+  );
+  console.log("selectedUser", selectedUser);
+
+  return selectedUser
+    ? {
+        ...selectedUser,
+        /* accessToken: "accessTokenaccessToken",
+        roles: ["admin", "eerjhrje"], */
+      }
+    : selectedUser;
 }
