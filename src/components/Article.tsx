@@ -15,6 +15,9 @@ export default function Article(): JSX.Element {
       const article: IArticle | undefined = articles.find(
         (article) => article.id === Number(number)
       );
+      if (!article) {
+        setMessage("article introuvable");
+      }
       setArticle(article);
     } else {
       setMessage("id introuvable");
@@ -22,12 +25,14 @@ export default function Article(): JSX.Element {
   }, [number]);
   return (
     <>
-      {number}?
-      <div className="article-item" key="article-item-detail">
-        <h3>{article?.title}</h3>
-        <p>{article?.body}</p>
-      </div>
-      :<p>{message}</p>
+      {article ? (
+        <div className="article-item" key="article-item-detail">
+          <h3>{article?.title}</h3>
+          <p>{article?.body}</p>
+        </div>
+      ) : (
+        <p>{message}</p>
+      )}
     </>
   );
 }

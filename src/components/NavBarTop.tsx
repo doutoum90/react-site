@@ -1,7 +1,21 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
-import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
+import {
+  Navbar,
+  Container,
+  Nav,
+  NavDropdown,
+  Form,
+  Button,
+} from "react-bootstrap";
+import {
+  faFacebook,
+  faTwitter,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
 
 import "./NavbarTop.css";
+import { Link } from "react-router-dom";
 
 export default function NavBarTop() {
   const [show, setShow] = useState(false);
@@ -13,7 +27,7 @@ export default function NavBarTop() {
   };
   const menusDrops = [
     {
-      name: "Dossiers",
+      name: "DOSSIERS",
       drops: [
         { name: "Audit de diplômes", path: "#audit" },
         { name: "Integration", path: "#integration" },
@@ -31,14 +45,29 @@ export default function NavBarTop() {
         { name: "Diverses documentations", path: "#diversdoc" },
       ],
     },
+    {
+      name: "PARTENARIAT",
+      drops: [
+        { name: "Partenariat nationaux", path: "#pnationaux" },
+        { name: "Partenariat étrangers", path: "#petrangers" },
+        { name: "Accords & conventions", path: "#accordconv" },
+      ],
+    },
+    {
+      name: "COMMUNICATION",
+      drops: [
+        { name: "Communiqués", path: "#communiques" },
+        { name: "Chartes graphiques", path: "#chartesgraphique" },
+        { name: "Divers", path: "#divers" },
+      ],
+    },
   ];
+
   return (
     <Navbar expand="lg" bg="dark" variant="dark">
-      <Container>
-        <Navbar.Brand href="/home">Home</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+      <Container key="cont">
+        <Navbar.Collapse key="nav1" id="basic-navbar-nav">
+          <Nav key="nav12" className="me-auto">
             {menusDrops.map((drop) => {
               return (
                 <>
@@ -65,6 +94,32 @@ export default function NavBarTop() {
               );
             })}
           </Nav>
+
+          <Nav key="nav2">
+            <Link
+              key="facebook"
+              to="https://www.facebook.com/onecstchad"
+              className="facebook social"
+            >
+              <FontAwesomeIcon key="facebookic" icon={faFacebook} size="2x" />
+            </Link>
+            <Link key="linkedin" to="#linked" className="linkedIn social">
+              <FontAwesomeIcon key="linkedinic" icon={faLinkedin} size="2x" />
+            </Link>
+            <Link key="twitter" to="#twitter" className="twitter social">
+              <FontAwesomeIcon key="twitteric" icon={faTwitter} size="2x" />
+            </Link>
+          </Nav>
+
+          <Form className="d-flex">
+            <Form.Control
+              type="search"
+              placeholder="Search"
+              className="me-2"
+              aria-label="Search"
+            />
+            <Button variant="outline-success">Search</Button>
+          </Form>
         </Navbar.Collapse>
       </Container>
     </Navbar>

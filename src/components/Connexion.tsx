@@ -10,8 +10,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { CustomError } from "../interfaces/error.interface";
 import { User } from "../interfaces/user.interface";
 import useAuth from "../hooks/UseAuth";
+import { Button, Form } from "react-bootstrap";
 
-// import users from "../assets/users.json";
 const users: User[] = require("../assets/users.json");
 
 export default function Connexion(): JSX.Element {
@@ -71,28 +71,35 @@ export default function Connexion(): JSX.Element {
           {errMsg}
         </p>
         <h1>Authentification</h1>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="username">Nom d'utilisateur:</label>
-          <input
-            type="text"
-            id="username"
-            ref={userRef}
-            autoComplete="off"
-            onChange={(e) => setUser(e.target.value)}
-            value={user}
-            required
-          />
+        <Form onSubmit={handleSubmit}>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label htmlFor="username">Nom d'utilisateur:</Form.Label>
+            <Form.Control
+              type="text"
+              ref={userRef}
+              autoComplete="off"
+              onChange={(e) => setUser(e.target.value)}
+              value={user}
+              required
+            />
+            <Form.Text className="text-muted">
+              We'll never share your email with anyone else.
+            </Form.Text>
+          </Form.Group>
 
-          <label htmlFor="password">Mot de passe :</label>
-          <input
-            type="password"
-            id="password"
-            onChange={(e) => setPwd(e.target.value)}
-            value={pwd}
-            required
-          />
-          <button>Se connecter</button>
-        </form>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label htmlFor="mdp">Password</Form.Label>
+            <Form.Control
+              type="password"
+              onChange={(e) => setPwd(e.target.value)}
+              value={pwd}
+              required
+            />
+            <Button variant="primary" type="submit">
+              Se connecter
+            </Button>
+          </Form.Group>
+        </Form>
         <p>
           Besoins d'un compte?
           <br />
@@ -112,7 +119,6 @@ export async function getUser(
   const selectedUser: User | undefined = await users.find(
     (user: User) => user.username === username && user.password === password
   );
-  console.log("selectedUser", selectedUser);
 
   return selectedUser
     ? {

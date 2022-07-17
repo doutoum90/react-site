@@ -1,19 +1,20 @@
 import articles from "../assets/articles.json";
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Articles(): JSX.Element {
   return (
-    <div>
+    <>
       {articles.map((article, key) => {
         return (
           <div className="article-item" key={key}>
-            <a href={"articles/" + article.id}>
+            <Link to={"/articles/" + article.id}>
               <h3>{article.title}</h3>
-            </a>
+            </Link>
             <p>{article.body}</p>
           </div>
         );
       })}
-    </div>
+    </>
   );
 }

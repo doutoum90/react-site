@@ -8,8 +8,8 @@ import NavBarBottom from "./NavBarBottom";
 export default function Header({ menus }: { menus: IMenus }): JSX.Element {
   return (
     <>
-      <NavBarTop />
-      <NavBarBottom menus={menus} />
+      <NavBarTop key="top" />
+      <NavBarBottom menus={menus} key="bottom" />
     </>
   );
 }

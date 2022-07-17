@@ -43,7 +43,7 @@ function App(): JSX.Element {
         <Header key="header" menus={menus} />
 
         <NavLink to="/"></NavLink>
-        <div className="content">
+        <div className="container">
           <Routes>
             <Route path="/" element={<Home key="Home" />} />
             <Route path="/About" element={<About key="About" />} />

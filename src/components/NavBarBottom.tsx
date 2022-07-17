@@ -10,18 +10,15 @@ function NavBarBottom({ menus }: { menus: IMenus }) {
   const navigate = useNavigate();
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    console.log("deconnextion en cours ...");
-
     setAuth(null);
     navigate("connexion");
   };
   return (
     <Navbar collapseOnSelect expand="lg" bg="light">
       <Container>
-        <Navbar.Brand href="/home">Home</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
+          <Nav className="me-auto" key="gauche">
             {auth?.name
               ? menus.menuLeft.protege.map((menu, key) => {
                   return (
@@ -38,7 +35,7 @@ function NavBarBottom({ menus }: { menus: IMenus }) {
                   );
                 })}
           </Nav>
-          <Nav>
+          <Nav key="droite">
             {auth?.name
               ? menus.menuRight.protege.map((menu, key) => {
                   return (
