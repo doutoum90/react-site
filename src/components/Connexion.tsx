@@ -72,8 +72,8 @@ export default function Connexion(): JSX.Element {
         </p>
         <h1>Authentification</h1>
         <Form onSubmit={handleSubmit}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label htmlFor="username">Nom d'utilisateur:</Form.Label>
+          <Form.Group className="mb-3" controlId="username">
+            <Form.Label>Nom d'utilisateur:</Form.Label>
             <Form.Control
               type="text"
               ref={userRef}
@@ -87,8 +87,8 @@ export default function Connexion(): JSX.Element {
             </Form.Text>
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label htmlFor="mdp">Password</Form.Label>
+          <Form.Group className="mb-3" controlId="mdp">
+            <Form.Label>Password</Form.Label>
             <Form.Control
               type="password"
               onChange={(e) => setPwd(e.target.value)}
