@@ -4,12 +4,14 @@ import { IMenus } from "../interfaces/menus.interface";
 import "./Header.css";
 import NavBarTop from "./NavBarTop";
 import NavBarBottom from "./NavBarBottom";
+import { BreadcrumbCustom } from "./BreadcrumbCustom";
 
 export default function Header({ menus }: { menus: IMenus }): JSX.Element {
   return (
     <>
       <NavBarTop key="top" />
       <NavBarBottom menus={menus} key="bottom" />
+      <BreadcrumbCustom />
     </>
   );
 }

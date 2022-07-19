@@ -64,7 +64,7 @@ export default function NavBarTop() {
   ];
 
   return (
-    <Navbar expand="lg" bg="dark" variant="dark">
+    <Navbar key="top1" expand="lg" bg="dark" variant="dark">
       <Container key="cont">
         <Navbar.Collapse key="nav1" id="basic-navbar-nav">
           <Nav key="nav12" className="me-auto">
